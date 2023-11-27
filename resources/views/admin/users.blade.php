@@ -24,7 +24,11 @@
       <tr align="center">
         <td>{{$user->name}}</td>
         <td>{{$user->email}}</td>
-        <td><a href="">Delete</a></td>
+        @if($user->usertype == '0')
+                <td><a href="{{url('/deleteuser',$user->id)}}">Delete</a></td>
+        @else
+                <td><a>Not Allowed</a></td>
+        @endif
       </tr>
       @endforeach
 

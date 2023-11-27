@@ -11,4 +11,9 @@ class AdminController extends Controller
         $users = user::all();
         return view("admin.users",compact("users"));
     }
+    public function deleteuser($id){
+        $user = user::find($id);
+        $user->delete();
+        return redirect()->back();
+    }
 }
